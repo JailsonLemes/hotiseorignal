@@ -1,0 +1,21 @@
+services:
+  apache-hotsite:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Garante que o GID 994 seja passado
+        HOST_DOCK_GID: ${DOCKER_GID:-994}
+    user: 'root' # Mantém como root por enquanto
+    container_name: apps-hotsite
+    image: app-hotsite
+    ports:
+      - "80:80"
+      - "443:443"
+      # - "22:22" # Removido se não for necessário
+    volumes:
+      - ./html:/var/www/html
+      # Mapeia o socket do Docker
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Mapeia a pasta de saída final
+      - /home/ixcsoft/Downloads/capturas:/capturas_output

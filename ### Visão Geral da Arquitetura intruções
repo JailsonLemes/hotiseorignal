@@ -1,0 +1,148 @@
+### Visão Geral da Arquitetura
+
+O sistema é composto por dois contêineres Docker principais:
+
+1.  **Contêiner Hotsite (`app-hotsite`):** É o "frontend". Roda um servidor Apache com PHP, exibe a interface web (`index.html`) e recebe os dados do formulário. Ele tem o Docker CLI instalado para poder *chamar* outro contêiner.
+2.  **Contêiner Cypress (`cypress-captura-app`):** É o "backend". Ele contém o Cypress, Node.js e todas as dependências de teste. Quando é iniciado, ele executa o script `run_capturas.sh`, que realiza todo o trabalho pesado: executa os testes, redimensiona as imagens e copia os resultados.
+
+### Parte 1: Configuração Inicial (Executar Apenas Uma Vez)
+
+Estes passos preparam a máquina host para executar os projetos.
+
+#### 1\. Pré-requisitos
+
+Certifique-se de que a máquina host tenha os seguintes softwares instalados:
+
+  * Docker
+  * Docker Compose
+  * Git (ou uma forma de copiar os arquivos do projeto)
+  * `npm` e `Node.js` (necessário para instalar o `sharp` antes do build, embora o `npm ci` dentro do Docker vá cuidar disso)
+
+#### 2\. Estrutura de Pastas
+
+Clone ou copie seu projeto para o computador host. A estrutura de pastas final deve ser esta:
+
+```
+/home/ixcsoft/Documentos/hotsite/
+├── cypress/                <-- Pasta do projeto Cypress
+│   ├── cypress/            <-- (Testes, commands.js, etc.)
+│   ├── node_modules/       <-- (Será criada)
+│   ├── Dockerfile          <-- (O Dockerfile do Cypress)
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── resize-images.js
+│   └── run_capturas.sh
+├── html/
+│   ├── onboarding/
+│   │   └── printScreen/
+│   │       ├── index.html  <-- (Sua interface web)
+│   │       └── gerar_capturas.php <-- (Seu script backend)
+│   └── ... (outros arquivos do hotsite)
+├── Dockerfile              <-- (O Dockerfile do Hotsite/PHP)
+├── docker-compose.yaml     <-- (O compose do Hotsite)
+└── start_hotsite.sh        <-- (Seu script de inicialização)
+```
+
+#### 3\. Permissões Críticas no Host
+
+Esta é a etapa mais importante para evitar erros de "Permission denied".
+
+  * **Permissão do Socket Docker:**
+    O contêiner do Hotsite roda como `root` (vide `docker-compose.yaml`) e, por isso, já consegue falar com o Docker Engine através do bind `/var/run/docker.sock`. Não é mais obrigatório ajustar o GID do grupo `docker`.  
+    > Observação: se você decidir voltar o contêiner para `www-data`, reative o argumento `HOST_DOCK_GID` no `Dockerfile` e no compose para adicionar esse usuário ao grupo correto.
+
+  * **Pasta de Screenshots (Obrigatório):**
+    Os arquivos finais ficam dentro do próprio projeto, em `cypress/screenshots/mobile_screenshots.cy.js`. O volume do `docker run` monta toda a pasta `cypress/` em `/app`, então o Cypress grava diretamente ali.
+
+    ```bash
+    # Garanta que a árvore existe e pode ser escrita
+    mkdir -p /home/ixcsoft/Documentos/hotsite/cypress/screenshots/mobile_screenshots.cy.js
+    chmod 777 /home/ixcsoft/Documentos/hotsite/cypress/screenshots
+    ```
+    O `cypress.config.js` também cria os diretórios na inicialização, mas as permissões precisam permitir escrita para o usuário padrão do container (root).
+```
+
+#### 4\. Construir as Imagens Docker
+
+Você precisa construir as duas imagens Docker:
+
+  * **Imagem do Cypress:**
+
+    ```bash
+    cd /home/ixcsoft/Documentos/hotsite/cypress
+    docker build -t cypress-captura-app .
+    ```
+
+  * **Imagem do Hotsite:**
+
+    ```bash
+    cd /home/ixcsoft/Documentos/hotsite/
+    docker compose build apache-hotsite
+    ```
+
+-----
+
+### Parte 2: Execução Diária (Como Usar a Aplicação)
+
+Depois que a configuração inicial estiver concluída, o uso diário é muito simples.
+
+#### 1\. Inicie o Servidor Hotsite
+
+Execute o script `start_hotsite.sh` (ou o comando `docker compose up`) para iniciar seu servidor web Apache/PHP.
+
+```bash
+cd /home/ixcsoft/Documentos/hotsite/
+./start_hotsite.sh
+```
+
+Isso iniciará o contêiner `apps-hotsite` em segundo plano.
+
+#### 2\. Acesse a Interface Web
+
+Abra seu navegador e acesse a interface que você criou:
+`http://localhost/onboarding/printScreen/`
+
+#### 3\. Preencha o Formulário
+
+Preencha os dados na interface web:
+
+  * **URL da Central:** A URL que você quer testar (ex: `.../central_assinante_web` ou `.../central-assinante`).
+  * **Login:** O login de teste.
+  * **Senha:** A senha de teste.
+  * **Plataforma(s):** Clique em "iOS", "Android" ou "Ambos".
+
+#### 4\. Gere as Capturas
+
+Clique no botão **"Gerar Capturas"**.
+
+Isso enviará o formulário para `gerar_capturas.php`, que será aberto em uma nova aba e começará a exibir o log da execução do Docker em tempo real.
+
+
+#### Parte 3/ Criar serviço para inciar todo dia.
+
+sudo nano /etc/systemd/system/hotsite.service
+
+[Unit]
+Description=Start Hotsite Docker Compose
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/ixcsoft/Documentos/hotsite/start_hotsite.sh
+RemainAfterExit=true
+# INSTRUÇÃO DE PARADA CORRIGIDA:
+ExecStop=/usr/bin/docker compose down 
+User=ixcsoft
+WorkingDirectory=/home/ixcsoft/Documentos/hotsite
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+
+
+### Depois execute os seguintes comandos.
+
+sudo systemctl daemon-reload # Recarrega a configuração do systemd
+sudo systemctl enable hotsite.service # Habilita para iniciar no boot
+sudo systemctl start hotsite.service # Inicia o serviço agora
