@@ -12,3 +12,4 @@ services:
       - "22:22"
     volumes:
       - ./html:/var/www/html
+      
