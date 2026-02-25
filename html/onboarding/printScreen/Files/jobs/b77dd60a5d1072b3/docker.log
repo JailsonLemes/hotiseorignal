@@ -1,0 +1,100 @@
+=== 2026-02-25T17:54:23+00:00 ===
+Comando: /usr/bin/docker run --rm --pull=always --name 'fastprint_b77dd60a5d1072b3' -e URL_CENTRAL='https://ixc.conectisp.com/central_assinante_web' -e LOGIN_CENTRAL='***' -e SENHA_CENTRAL='***' -e deviceType='android' -e DEVICE_TYPE='android' -e CYPRESS_DEVICE_TYPE='android' -v '/home/ixcsoft/Documentos/hotsite/html/onboarding/printScreen/Files/jobs/b77dd60a5d1072b3/screenshots':/cypress/screenshots 'harbor.ixcsoft.com.br/papaya/fastprint:latest'
+Status: running
+Output:
+latest: Pulling from papaya/fastprint
+Digest: sha256:84da43bf62b87de9195e1148910a2ebd9baab108d091beefd750364cfcbfc09b
+Status: Image is up to date for harbor.ixcsoft.com.br/papaya/fastprint:latest
+It looks like this is your first time using Cypress: 13.17.0
+
+[STARTED] Task without title.
+[TITLE]  Verified Cypress!       /root/.cache/Cypress/13.17.0/Cypress
+[SUCCESS]  Verified Cypress!       /root/.cache/Cypress/13.17.0/Cypress
+
+Opening Cypress...
+
+DevTools listening on ws://127.0.0.1:44047/devtools/browser/fa1372b9-e55e-4766-ba7e-7cafd28b942f
+
+================================================================================
+tput: No value for $TERM and no -T specified
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        13.17.0                                                                        │
+  │ Browser:        Electron 118 (headless)                                                        │
+  │ Node Version:   v18.20.4 (/usr/bin/node)                                                       │
+  │ Specs:          1 found (mobile_screenshots.cy.js)                                             │
+  │ Searched:       e2e/*.cy.js                                                                    │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  mobile_screenshots.cy.js                                                        (1 of 1)
+
+
+  Screenshots app central assinante
+    ✓ Screenshots app central assinante ('cel') (26530ms)
+    ✓ Screenshots app central assinante ('tab10') (32441ms)
+
+
+  2 passing (1m)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        2                                                                                │
+  │ Passing:      2                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  18                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     1 minute, 1 second                                                               │
+  │ Spec Ran:     mobile_screenshots.cy.js                                                         │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /cypress/screenshots/mobile_screenshots.cy.js/cel_pg_login.png                        (389x691)
+  -  /cypress/screenshots/mobile_screenshots.cy.js/cel_pg_principal.png                    (389x691)
+  -  /cypress/screenshots/mobile_screenshots.cy.js/cel_pg_menu_lateral.png                 (389x691)
+  -  /cypress/screenshots/mobile_screenshots.cy.js/cel_pg_fatura.png                       (389x691)
+  -  /cypress/screenshots/mobile_screenshots.cy.js/cel_pg_plano.png                        (389x691)
+  -  /cypress/screenshots/mobile_screenshots.cy.js/cel_pg_relatorios.png                   (389x691)
+  -  /cypress/screenshots/mobile_screenshots.cy.js/cel_pg_consumo.png                      (389x691)
+  -  /cypress/screenshots/mobile_screenshots.cy.js/cel_pg_nota.png                         (389x691)
+  -  /cypress/screenshots/mobile_screenshots.cy.js/cel_pg_config.png                       (389x691)
+  -  /cypress/screenshots/mobile_screenshots.cy.js/tab10_pg_login.png                    (1185x1896)
+  -  /cypress/screenshots/mobile_screenshots.cy.js/tab10_pg_principal.png                (1185x1896)
+  -  /cypress/screenshots/mobile_screenshots.cy.js/tab10_pg_menu_lateral.png             (1185x1896)
+  -  /cypress/screenshots/mobile_screenshots.cy.js/tab10_pg_fatura.png                   (1185x1896)
+  -  /cypress/screenshots/mobile_screenshots.cy.js/tab10_pg_plano.png                    (1185x1896)
+  -  /cypress/screenshots/mobile_screenshots.cy.js/tab10_pg_relatorios.png               (1185x1896)
+  -  /cypress/screenshots/mobile_screenshots.cy.js/tab10_pg_consumo.png                  (1185x1896)
+  -  /cypress/screenshots/mobile_screenshots.cy.js/tab10_pg_nota.png                     (1185x1896)
+  -  /cypress/screenshots/mobile_screenshots.cy.js/tab10_pg_config.png                   (1185x1896)
+
+
+Testes concluídos. Iniciando verificação de screenshots...
+Aguardando finalização das capturas...
+Nenhum redimensionamento necessário. Todas as imagens já estão corretas.
+
+================================================================================
+
+  (Run Finished)
+tput: No value for $TERM and no -T specified
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✔  mobile_screenshots.cy.js                 01:01        2        2        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✔  All specs passed!                        01:01        2        2        -        -        -  
+
+
+Status: 0
+

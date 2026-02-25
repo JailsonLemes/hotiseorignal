@@ -1,0 +1,54 @@
+INFORMAÇÕES PRINCIPAIS
+
+Razão social: 
+Nome do app: Best Fibra
+Link da Central: https://central.gstn.com.br/central_assinante_web/login
+App Bundle: br.com.gstn.central
+
+----------------------
+
+GOOGLE
+
+Conta
+    •	Login: 
+    •	Senha: 
+
+Keystore
+
+    •	Alias: app
+    •	Senha: 123456
+
+----------------------
+
+APPLE
+
+Conta
+    •	Login: 
+    •	Senha: 
+
+Certificado P12
+    •	Senha: sem senha
+
+----------------------
+
+CLIENTE TESTE
+
+Conta
+    •	Login: 35824009805
+    •	Senha: 3582
+
+----------------------
+
+INFORMAÇÕES COMPLEMENTARES
+
+Nome completo: Ederson Ribeiro Vian
+Telefone: +55 (19) 99111-1071
+E-mail: sac@gstn.com.br
+Cidade: Campinas
+Estado: São Paulo
+
+Link da Política de Privacidade: https://central.gstn.com.br/privacy_policy.html
+
+Descrição Breve: Consultar suas faturas, assinar seu contrato e debloquear seu acesso a um clique
+
+Descrição Completa: Aplicativo feito para consultar suas faturas, assinar seu contrato e debloquear seu acesso a um clique!

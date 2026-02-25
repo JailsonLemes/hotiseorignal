@@ -1,0 +1,54 @@
+INFORMAÇÕES PRINCIPAIS
+
+Razão social: 
+Nome do app: Netparque Telecom
+Link da Central: https://ixc.netparque.net.br/central_assinante_web/login
+App Bundle: br.net.netparque.ixc
+
+----------------------
+
+GOOGLE
+
+Conta
+    •	Login: 
+    •	Senha: 
+
+Keystore
+
+    •	Alias: app
+    •	Senha: 123456
+
+----------------------
+
+APPLE
+
+Conta
+    •	Login: 
+    •	Senha: 
+
+Certificado P12
+    •	Senha: sem senha
+
+----------------------
+
+CLIENTE TESTE
+
+Conta
+    •	Login: 498.072.690-91
+    •	Senha: 49807269091
+
+----------------------
+
+INFORMAÇÕES COMPLEMENTARES
+
+Nome completo: EMERSOM FABIANO DE OLIVEIRA RI
+Telefone: +55(51)99109-9759
+E-mail: internetdoparque@uol.com.br
+Cidade: Cachoeirinha 
+Estado: Rio Grande do Sul
+
+Link da Política de Privacidade: https://ixc.netparque.net.br/privacy_policy.html
+
+Descrição Breve: Aplicativo para garantir melhor conexão com nosso cliente! +Rápida e +Confiável
+
+Descrição Completa: Experimente a praticidade do nosso app: assine contratos, acompanhe seu consumo de internet, pague faturas ou contate-nos com facilidade. Tudo em uma plataforma intuitiva para simplificar sua vida na palma da sua mão. Nos siga no Instagram e Facebook: @netparquetelecom. 

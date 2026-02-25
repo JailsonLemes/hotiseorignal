@@ -1,0 +1,54 @@
+INFORMAÇÕES PRINCIPAIS
+
+Razão social: 646 - NEW NET TELECOM LTDA
+Nome do app: Central New Net Telecom
+Link da Central: https://central.newnet.psi.br/central_assinante_web
+App Bundle: br.psi.newnet.central
+
+----------------------
+
+GOOGLE
+
+Conta
+    •	Login: mauropaulo8@gmail.com
+    •	Senha: Newnet@135638
+
+Keystore
+
+    •	Alias: app
+    •	Senha: 123456
+
+----------------------
+
+APPLE
+
+Conta
+    •	Login: 
+    •	Senha: 
+
+Certificado P12
+    •	Senha: sem senha
+
+----------------------
+
+CLIENTE TESTE
+
+Conta
+    •	Login: vinicius@newnet.psi.br
+    •	Senha: 12345678910
+
+----------------------
+
+INFORMAÇÕES COMPLEMENTARES
+
+Nome completo: Mauro Paulo
+Telefone: +552226305633
+E-mail: mauropaulo8@gmail.com
+Cidade: Cabo Frio
+Estado: Rio de Janeiro
+
+Link da Política de Privacidade: https://central.newnet.psi.br/privacy_policy.html
+
+Descrição Breve: New Net Inovando para você!
+
+Descrição Completa: A New Net Telecom oferece gratuitamente o aplicativo da central do assinante, tudo para que o cliente tenha acesso a tudo que precisa na palma da sua mão!

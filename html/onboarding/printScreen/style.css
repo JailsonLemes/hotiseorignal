@@ -1,0 +1,85 @@
+.logo-ios {
+    filter: invert(.8);
+}
+
+/* Esconde o checkbox real */
+input[type="checkbox"].platform-check {
+    display: none;
+}
+
+/* Estilo inicial da label (imagem) */
+input[type="checkbox"].platform-check ~ label.platform-label {
+    opacity: 0.3;
+    transition: all .4s;
+    cursor: pointer; /* Adiciona cursor de ponteiro */
+}
+
+/* Estilo da label quando o checkbox está marcado */
+input[type="checkbox"].platform-check:checked ~ label.platform-label {
+    opacity: 1;
+}
+
+/* Estilo básico para o botão secundário "Ambos" */
+.btn-secondary {
+    padding: 8px 15px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Logs */
+.log-wrapper {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+}
+.log-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+.log-panel {
+    max-height: 240px;
+    overflow: auto;
+    background: #0b0f1a;
+    color: #d7e2ff;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 12px;
+    white-space: pre-wrap;
+}
+.btn-log-refresh {
+    padding: 6px 10px;
+    font-size: 12px;
+}
+.job-status {
+    color: #e6edf7;
+    font-size: 13px;
+    padding: 6px 0;
+}
+
+/* Ajustes gerais para form-group (exemplo) */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-conrol { /* Note: a classe no HTML está 'form-conrol', deveria ser 'form-control'? */
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Garante que padding não aumente o tamanho total */
+}

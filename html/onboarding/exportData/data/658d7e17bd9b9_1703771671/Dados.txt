@@ -1,0 +1,54 @@
+INFORMAÇÕES PRINCIPAIS
+
+Razão social: 9691 - ARCC RIO TELECOM PROVEDOR DE INTERNET LTDA
+Nome do app: ARCC RIO TELECOM
+Link da Central: https://sistema.ixcsoft.com.br/central_assinante_web/login
+App Bundle: 
+
+----------------------
+
+GOOGLE
+
+Conta
+    •	Login: 
+    •	Senha: 
+
+Keystore
+
+    •	Alias: app
+    •	Senha: 123456
+
+----------------------
+
+APPLE
+
+Conta
+    •	Login: 
+    •	Senha: 
+
+Certificado P12
+    •	Senha: sem senha
+
+----------------------
+
+CLIENTE TESTE
+
+Conta
+    •	Login: 188.016.027-74
+    •	Senha: 14011999
+
+----------------------
+
+INFORMAÇÕES COMPLEMENTARES
+
+Nome completo: RENATA SOUZA DE MELO
+Telefone: +55 (21) 99711-5666
+E-mail: arcrioplayatendimento@gmail.com
+Cidade: NOVA IGUAÇU
+Estado: RJ
+
+Link da Política de Privacidade: https://sistema.ixcsoft.com.br/privacy_policy.html
+
+Descrição Breve: Arccrio telecom trabalhando sempre para atender cada dia melhor as necessidades!
+
+Descrição Completa: Arcc - rio telecom, Por aqui você pode ter acesso a 2º via de fatura, consumo semanal, atendimento e muito mais. Baixe agora mesmo, toda comodidade de atendimento na palma da sua mão! 
