@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" href="../../img/Logo.png" type="image/x-icon">
+	<title>Ferramentas - Gerar Keystore</title>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-top">
+			<a href="/keystore/" class="img-container">
+				<img src="../../img/iconelogo.png">
+			</a>
+        </div>
+         <div class="form-gerar-p12">
+            <form action="/keystore/create/post.php" method="POST">
+                <div class="form-group">
+                    <input autocomplete="off" type="text" name="ENTITY[responsible]" class="form-conrol" placeholder="Responsável">
+                </div>
+                <div class="form-group">
+                    <input autocomplete="off" type="text" name="ENTITY[name]" class="form-conrol" placeholder="Nome da Empresa">
+                </div>
+                <div class="form-group">
+                    <input autocomplete="off" type="text" name="ENTITY[state]" class="form-conrol" placeholder="Estado">
+                </div>
+                <div class="form-group">
+                    <input autocomplete="off" type="text" name="ENTITY[city]" class="form-conrol" placeholder="Cidade">
+                </div>
+                <div class="form-group">
+                    <input autocomplete="off" type="text" name="KEY[alias]" class="form-conrol" placeholder="Alias">
+                </div>
+                <div class="form-group">
+                    <input autocomplete="off" type="text" name="KEY[password]" class="form-conrol" placeholder="Senha">
+                </div>
+                <div class="form-group">
+                    <button class="btn" type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

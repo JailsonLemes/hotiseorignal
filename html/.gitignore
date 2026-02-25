@@ -1,0 +1,16 @@
+# trash, não deve ser salvo, posi não são mais usados
+trash
+# bk não é necessário, pois o git deverá fazer o versionamento
+bk_ferramentas_2.zip
+
+# nenhuma das pastas data deve ser salva, pois são o produto da ferramenta, e isso não deve ficar salvo
+generatorP12/export-csr/data/*
+generatorP12/export-p12/data/*
+keystore/create/data/*
+keystore/export-pem/data/*
+keystore/validate/data/*
+onboarding/exportData/data/*
+# Vamos salvar os templates!
+onboarding/printScreen/data/*
+!onboarding/printScreen/data/templates/
+

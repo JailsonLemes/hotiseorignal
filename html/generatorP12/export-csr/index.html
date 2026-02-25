@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" href="../../img/Logo.png" type="image/x-icon">
+	<title>Ferramentas - Gerar certificado CSR</title>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-top">
+			<a href="/generatorP12/" class="img-container">
+				<img src="../../img/iconelogo.png">
+			</a>
+        </div>
+         <div class="form-gerar-p12">
+            <form action="/generatorP12/export-csr/post.php" method="POST">
+                <div class="form-group">
+                    <input autocomplete="off" type="text" name="ENTITY[responsible]" class="form-conrol" placeholder="Responsável">
+                </div>
+                <div class="form-group">
+                    <input autocomplete="off" type="text" name="ENTITY[email]" class="form-conrol" placeholder="E-mail">
+                </div>
+                <div class="form-group">
+                    <label for="input-quantity">Quantidade de certificados</label>
+                    <input autocomplete="off" id="input-quantity" value="1" max=5 min=1 name="quantity" type="number" name="quantiy" class="form-conrol">
+                </div>
+                <div class="form-group">
+                    <button class="btn" type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

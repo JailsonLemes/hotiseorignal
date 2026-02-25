@@ -1,0 +1,304 @@
+body{
+	height: 100vh;
+	background: red;
+	background: linear-gradient(90deg, rgb(99 187 255), rgb(11 199 239),rgb(99 187 255));
+    animation: fundoanimado;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-timing-function: cubic-bezier(0.49, 0.49, 0.49, 0.48);
+    margin: 0px
+}
+*{
+	box-sizing: border-box;
+}
+body > img{
+	display: block;
+    height: auto;
+    height: 12vh;
+    padding: 4vh 0px 0px 0px;
+    margin: 0px auto;
+    max-width: 100%;
+}
+#icones {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  display: block;
+}
+#iconesinterno {
+  display: block;
+  width: fit-content;
+  margin: 0px auto;
+  height: auto;
+  max-width: 100%;
+  border-top-left-radius: 2vh;
+  border-top-right-radius: 2vh;
+  box-shadow: rgba(0,0,0,0.2) 0px 0px 7vh inset;
+  max-width: 90vw;
+  max-height: 21vh;
+  overflow: auto;
+}
+.icone {
+	width: 13vh;
+	height: 13vh;
+	display: none;
+	margin: 1vh 0.5vh;
+	background: rgba(250,250,250,0.2);
+	border-radius: 3vh;
+	box-shadow: rgba(0,0,0,0.5) 0px 5px 7px;
+	cursor: pointer;
+}
+.icone:hover {
+	background: transparent;
+	box-shadow: rgba(0,0,0,0.5) 0px 5px 7px inset;
+}
+.iconvisivel{
+  display: inline-block !important;
+}
+.icone > img {
+    display: block;
+    width: 60%;
+    padding: 10%;
+    margin: 0px auto;
+}
+.icone > p {
+	font-family: helvetica;
+	font-size: 1.8vh;
+	display: block;
+	text-align: center;
+	margin: 0px;
+	color: white;
+    -webkit-stroke-color: #000;
+   -webkit-stroke-width: 1px;
+   -webkit-text-stroke: 1px #000;
+      text-stroke: 1px #000;
+      font-weight: bold;
+}
+#tela{
+  display: none;
+  width: 100%;
+  height: 60vh;
+  margin: 5vh 0px;
+}
+#fechar{
+  font-size: 3vh;
+  color:white;
+  font-family: helvetica;
+  position: absolute;
+  top: -2vh;
+  right: 2vh;
+  cursor: pointer;
+}
+#fechar:hover{
+  color: red;
+}
+#tela h3 {
+    display: inline-block;
+    float: left;
+    font-size: 3vh;
+    padding: 1vh;
+    font-family: helvetica;
+    color: white;
+    margin: 0px;
+    padding-left: 9vh;
+}
+#tela aside{
+  display: block;
+  width: 100%;
+  background: rgba(0,0,0,0.2); 
+  height: 6vh
+}
+#tela article{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 54vh;
+  overflow: hidden;
+}
+#tela > div{
+  position: relative;
+  display: block;
+  width: 128vh;
+  height: 40vh;
+  margin: 5vh auto;
+  width: 112vh;
+  height: 100%;
+  background: rgba(0,0,0,0.1);
+  border-radius: 2vh;
+  max-width: 90%;
+  overflow: hidden;
+}
+article div{
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  margin: 0px;
+  float: left;
+  box-sizing: border-box;
+  padding: 4vh 3vh;
+}
+article input{
+  display: block;
+  width: 90%;
+  height: 5vh;
+  background: rgba(255,255,255,0.2);
+  color: black;
+  text-align: center;
+  font-size: 2vh;
+  outline: none;
+  border: none;
+}
+article input:focus{
+  background: rgba(255,255,255,0.6);
+}
+.check{
+  display: inline-block;
+  float: left;
+  width: 20%;
+  height: 3vh;
+}
+label span{
+  font-size: 2vh;
+  font-family: monospace;
+  padding: 1vh;
+  color: white;
+}
+.check:focus{
+  background: none;
+}
+.salvar{
+  background: rgba(0,0,0,0.5);
+  border-radius: 2vh;
+  color: white;
+  cursor: pointer;
+}
+.salvar:focus{
+  background: rgba(0,0,0,0.5);
+}
+.salvar:hover{
+  background: rgba(255,255,255,0.5);
+  color: black
+}
+article label{
+  display: block;
+  color: black;
+  font-family: helvetica;
+  font-size: 1.7vh;
+  margin: 2vh 0px;
+}
+aside > img {
+    position: absolute;
+    left: 1vh;
+    top: 0.5vh;
+    height: 5vh;
+    overflow: hidden;
+}
+article p,li{
+  font-family: helvetica;
+  color:white;
+  text-align: justify-all; 
+  margin: 1vh 0px
+}
+article h2{
+    font-size: 6vh;
+    margin: 0px;
+    color: white;
+    font-family: sans-serif;
+    font-weight: 400;
+}
+article > div > span{
+    font-size: 1.7vh;
+    font-family: monospace;
+    padding-right: 4vh;
+    color: white;
+}
+
+article p{
+  font-size: 2vh;
+  margin: 1vh 0px;
+}
+article li{
+  font-size: 2vh;
+}
+
+.formularios{
+  display: none;
+}
+
+#senhaAcesso {
+  height: 5vh;
+  width: 100%;
+  display: block;
+  color: black;
+  box-sizing: border-box;
+  padding: 0px 10vh;
+  border: 0px;
+  transition: all 0.5s;
+  font-size: 2vh;
+  text-align: center;
+  background: transparent;
+  box-shadow: 0 0 0 0;
+    outline: 0;
+  /*box-shadow: 0vh -1vh 2vh rgba(0,0,0,0.3) inset;*/
+}
+#blocoSenha{
+  position: relative;
+  height: 0vh;
+  width: 100%;
+  display: block;
+  background: rgba(255,255,255,0.5);
+  box-sizing: border-box;
+  transition: all 0.5s;
+  overflow: hidden;
+}
+.btnsAcesso{
+  position: absolute;
+  height: 3vh;
+  right: 2vh;
+  top: 1vh;
+}
+.btnsAcesso img{
+  height: 100%;
+  display: inline-block;
+  opacity: 0.5;
+  margin: 0px 1vh;
+  cursor: pointer;
+}
+.btnsAcesso img:hover{
+  opacity: 1;
+}
+#nomeAcesso {
+  position: absolute;
+  left: 1vh;
+  top: 1.5vh;
+  font-size: 2vh;
+  font-family: helvetica;
+}
+#test_frame{
+    width: 100%;
+    height: 100%;
+    padding: calc((54vh - 140px)/2);
+    background: white;
+}
+
+.framegeral{
+  width: 100%;
+  height: calc(100% + 6vh);
+  margin-top: -6vh;
+}
+.framecaptura{
+  width: 100%;
+  height: calc(100% + 35vh);
+  margin-top: -22vh;
+}
+
+@keyframes fundoanimado {
+  0%{
+  	background-position: 0vw; 
+  }
+  100%{
+  	background-position: 100vw;
+  }
+}

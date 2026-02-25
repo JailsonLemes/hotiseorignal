@@ -1,0 +1,18 @@
+
+.logo-ios {
+    filter: invert(.8);
+}
+
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"] ~ label {
+    opacity: 0.3;
+    transition: all .4s;
+}
+
+input[type="checkbox"]:checked ~ label {
+    opacity: 1;
+}
