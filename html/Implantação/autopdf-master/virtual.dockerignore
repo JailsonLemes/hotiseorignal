@@ -1,0 +1,22 @@
+# Ambiente virtual local
+venv/
+
+# Cache do Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Arquivos temporários de instalação
+*.deb
+
+# Arquivos gerados (tokens, PDFs)
+token*.pickle
+*.pdf
+
+# Configuração do Git (se usar)
+.git/
+.gitignore
+
+# Outros arquivos específicos do seu S.O.
+.DS_Store
+Thumbs.db

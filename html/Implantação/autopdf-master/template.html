@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Credenciais de Acesso - {{ provider_name }}</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Fundo cinza suave */
+            color: #1f2937;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: #ffffff;
+            max-width: 720px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(31, 41, 55, 0.07);
+            border: 1px solid #e5e7eb;
+            overflow: hidden;
+        }
+
+        /* --- HEADER MODERNIZADO COM GRADIENTE --- */
+        .brand-header {
+            background: linear-gradient(110deg, #1e40af 0%, #2563eb 100%);
+            color: white;
+            padding: 32px 40px;
+            border-bottom: 4px solid #1d4ed8;
+        }
+
+        .brand-header h1 {
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 4px;
+        }
+
+        .brand-header p {
+            font-weight: 400;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 30px 40px 40px 40px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        /* --- TÍTULO DE SEÇÃO MODERNIZADO --- */
+        h2.section-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #1e3a8a; /* Azul mais escuro e sóbrio */
+            margin-bottom: 20px;
+            padding-left: 16px;
+            border-left: 4px solid #60a5fa; /* Destaque azul claro */
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px 24px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+
+        /* --- CAMPO COM MAIOR DESTAQUE --- */
+        .form-field {
+            background-color: #f9fafb; /* Fundo de campo sutilmente diferente */
+            border: 1px solid #e5e7eb;
+            border-left: 4px solid #93c5fd; /* Borda de destaque azul */
+            border-radius: 8px;
+            padding: 14px 16px;
+            font-size: 1rem;
+            color: #111827;
+            min-height: 48px; /* Altura consistente */
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            word-break: break-all;
+        }
+
+        .form-field:empty::before {
+            content: "—";
+            color: #9ca3af;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6b7280;
+            border-top: 1px solid #e5e7eb;
+            padding: 30px 40px;
+            background-color: #f9fafb;
+        }
+        
+        .confidential {
+            font-size: 0.8rem;
+            color: #9ca3af;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        footer .logo {
+            font-weight: 600;
+            color: #2563eb;
+            margin-bottom: 6px;
+        }
+        
+        @media print {
+             body { background-color: white !important; }
+            .container { box-shadow: none !important; border: none !important; }
+            .brand-header { background: #f1f1f1 !important; color: black !important; border-bottom: 4px solid #ddd !important; }
+            .section-title { color: #1e3a8a !important; border-left-color: #60a5fa !important; }
+            .form-field { border-left-color: #93c5fd !important; background-color: #f9fafb !important; }
+        }
+
+        @page {
+            margin: 20mm;
+            size: A4;
+        }
+    </style>
+</head>
+<body>
+    <main class="container" role="main" aria-label="Credenciais de acesso">
+        
+        <header class="brand-header">
+            <h1>Relatório de Acesso</h1>
+            <p>{{ provider_name }} | {{ deployment_type }}</p>
+        </header>
+        
+        <div class="content">
+            <section aria-labelledby="provider-info-title">
+                <h2 class="section-title" id="provider-info-title">Informações do Provedor</h2>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="provider-name">Nome do Provedor</label>
+                        <div class="form-field" id="provider-name">{{ provider_name }}</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="domain">Domínio/Site</label>
+                        <div class="form-field" id="domain">{{ domain }}</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user">Usuário</label>
+                        <div class="form-field" id="user">{{ username }}</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <div class="form-field" id="password">{{ password }}</div>
+                    </div>
+                </div>
+            </section>
+
+            {% if deployment_type == "IXC Provedor" and server_ip %}
+            <section aria-labelledby="server-config-title">
+                <h2 class="section-title" id="server-config-title">Configurações do Servidor</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="server-ip">IP do servidor</label>
+                        <div class="form-field" id="server-ip">{{ server_ip }}</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="server-password">Senha do Servidor</label>
+                        <div class="form-field" id="server-password">{{ server_password }}</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="port">Porta</label>
+                        <div class="form-field" id="port">{{ server_port }}</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="server-user">Usuário</label>
+                        <div class="form-field" id="server-user">{{ server_user }}</div>
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+
+            <section aria-labelledby="backup-info-title">
+                <h2 class="section-title" id="backup-info-title">Backup</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="backup-location">Local de Backup</label>
+                        <div class="form-field" id="backup-location">{{ backup_location }}</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="backup-email">Email de backup</label>
+                        <div class="form-field" id="backup-email">{{ backup_email }}</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="backup-password">Senha de backup</label>
+                        <div class="form-field" id="backup-password">{{ backup_password }}</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer role="contentinfo">
+            <p class="confidential">
+                Este documento contém informações confidenciais. O PDF está criptografado para sua segurança.
+            </p>
+            <div class="logo" aria-label="Nome da empresa">IXCsoft®</div>
+            <p>Documento gerado em: {{ generation_date }}</p>
+        </footer>
+    </main>
+</body>
+</html>
