@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="../../img/Logo.png" type="image/x-icon">
+    <title>Ferramentas - Capturas de tela</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo-top">
+            <a href="/onboarding/" class="img-container">
+                <img src="../../img/iconelogo.png">
+            </a>
+        </div>
+        <div class="form-dados-onboard">
+            <form action="gerar_capturas.php" method="POST" id="capture-form">
+
+                <div class="form-group pb-2">
+                    <label for="url_central">URL da Central do Assinante:</label>
+                    <input type="url" id="url_central" name="url_central" class="form-conrol" required placeholder="https://...">
+                </div>
+                <div class="form-group pb-2">
+                    <label for="login_central">Login:</label>
+                    <input type="text" id="login_central" name="login_central" class="form-conrol" required>
+                </div>
+                <div class="form-group pb-4">
+                    <label for="senha_central">Senha:</label>
+                    <input type="password" id="senha_central" name="senha_central" class="form-conrol" required>
+                </div>
+
+                <div class="form-group pb-2">
+                    <label>Selecione a(s) plataforma(s) desejada(s):</label>
+                </div>
+                <div class="form-group pb-1">
+                    <div class="row align-items-center">
+                        <div class="col-1">
+                            <input id="input-check-android" type="checkbox" name="platform[]" value="android" class="form-conrol platform-check">
+                            <label for="input-check-android" class="img-container platform-label">
+                                <img src="../../img/logo_android.png" alt="Android">
+                            </label>
+                        </div>
+                        <div class="col-1 ms-4">
+                            <input id="input-check-ios" type="checkbox" name="platform[]" value="ios" class="form-conrol platform-check">
+                            <label for="input-check-ios" class="img-container platform-label">
+                                <img class="logo-ios" src="../../img/logo_apple.png" alt="iOS">
+                            </label>
+                        </div>
+                        <div class="col-auto ms-4">
+                            <button type="button" class="btn-secondary" id="btn-ambos">Ambos</button>
+                        </div>
+                        <div class="col-auto ms-4">
+                            <button type="button" class="btn-secondary" id="btn-ver-logs">Ver logs</button>
+                        </div>
+                    </div>
+                </div>
+                 <div class="form-group pb-4">
+                    <small>Selecione Android, iOS ou clique em Ambos.</small>
+                 </div>
+                <div class="form-group">
+                    <div id="log-wrapper" class="log-wrapper">
+                        <div class="log-header">
+                            <span id="log-job-label">Nenhum job recente.</span>
+                            <button type="button" class="btn-secondary btn-log-refresh" id="btn-log-refresh">Atualizar log</button>
+                        </div>
+                        <pre id="log-panel" class="log-panel">Log vazio.</pre>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div id="job-status" class="job-status">Status: aguardando.</div>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn" type="submit" id="btn-gerar">Gerar Capturas</button>
+                    <button class="btn-secondary" type="button" id="btn-cancel" disabled>Parar execucao</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+    <script src="../../toast/Toastify.js"></script>
+</body>
+</html>
