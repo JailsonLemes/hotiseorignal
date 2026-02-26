@@ -1,9 +1,0 @@
-google_credentials/credentials.json
-credentials.json
-token.json
-token.pickle
-token_*.pickle
-__pycache__/
-*.pyc
-.idea/
-venv/

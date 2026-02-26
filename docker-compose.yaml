@@ -6,10 +6,30 @@ services:
     user: 'root'
     container_name: apps-hotsite
     image: app-hotsite
+    restart: unless-stopped
     ports:
       - "80:80"
       - "443:443"
-      - "22:22"
     volumes:
       - ./html:/var/www/html
-      
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      HOST_HTML_PATH: ${PWD}/html
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost/ >/dev/null || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+  hotsite-worker:
+    image: app-hotsite
+    user: 'root'
+    depends_on:
+      - apache-hotsite
+    command: ["php", "/var/www/html/onboarding/printScreen/worker.php"]
+    restart: unless-stopped
+    volumes:
+      - ./html:/var/www/html
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      HOST_HTML_PATH: ${PWD}/html
